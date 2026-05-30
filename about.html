@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>关于 · 917813</title>
+<meta name="description" content="917813 —— 让最好的智能，成为像空气与水一样的公共品。一个公益开放大量模型的 NewAPI 中转站。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Noto+Serif+SC:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F5F1E8;
+    --paper-2:#EFE9DB;
+    --paper-3:#E9E2D1;
+    --ink:#1A1916;
+    --ink-soft:#3A372F;
+    --muted:#7A7466;
+    --line:rgba(26,25,22,0.12);
+    --line-soft:rgba(26,25,22,0.07);
+    --clay:#BE5B3C;
+    --clay-deep:#9E4327;
+    --serif:'Fraunces','Noto Serif SC',Georgia,'Songti SC',serif;
+    --cjk:'Noto Serif SC','Fraunces',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--cjk);
+    font-weight:400;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* subtle paper grain */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:radial-gradient(rgba(26,25,22,0.025) 1px,transparent 1px);
+    background-size:3px 3px;opacity:.6;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(120%) blur(8px);
+    background:rgba(245,241,232,0.72);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;gap:13px;font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:.01em;}
+  .brand img{height:36px;width:36px;border-radius:9px;object-fit:cover;display:block;box-shadow:0 1px 4px rgba(26,25,22,0.12);}
+  .nav-links{display:flex;gap:34px;font-family:var(--sans);font-size:14.5px;color:var(--ink-soft);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .25s;}
+  .nav-links a:hover{color:var(--clay);}
+  .nav-cta{font-family:var(--sans);font-size:14px;border:1px solid var(--ink);border-radius:999px;padding:9px 20px;transition:all .25s;}
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+  @media(max-width:760px){.nav-links{display:none;}}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:120px 0 96px;}
+  .eyebrow{font-family:var(--sans);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);margin-bottom:34px;}
+  h1.lede{
+    font-family:var(--serif);
+    font-weight:340;
+    font-size:clamp(40px,6.6vw,82px);
+    line-height:1.08;
+    letter-spacing:-0.015em;
+    max-width:18ch;
+  }
+  h1.lede em{font-style:italic;color:var(--clay);}
+  .hero-sub{
+    margin-top:38px;max-width:54ch;
+    font-size:clamp(17px,1.7vw,20px);
+    color:var(--ink-soft);font-weight:300;
+  }
+  .hero-actions{margin-top:48px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+  .btn-primary{font-family:var(--sans);font-size:15px;background:var(--ink);color:var(--paper);padding:14px 30px;border-radius:999px;transition:transform .25s,background .25s;}
+  .btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px);}
+  .btn-ghost{font-family:var(--sans);font-size:15px;color:var(--ink-soft);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .25s,border-color .25s;}
+  .btn-ghost:hover{color:var(--clay);border-color:var(--clay);}
+
+  /* ---------- section frame ---------- */
+  section{padding:96px 0;}
+  .rule{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto;}
+  .sec-label{font-family:var(--sans);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+  h2{font-family:var(--serif);font-weight:360;font-size:clamp(30px,4.2vw,52px);line-height:1.12;letter-spacing:-0.01em;max-width:20ch;}
+  h2 em{font-style:italic;color:var(--clay);}
+  .prose{font-size:clamp(17px,1.5vw,19px);color:var(--ink-soft);font-weight:300;max-width:60ch;}
+  .prose p+p{margin-top:22px;}
+
+  /* ---------- manifesto / belief ---------- */
+  .beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line);}
+  .belief{padding:40px 28px 8px 0;border-bottom:1px solid var(--line-soft);}
+  .belief .n{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--clay);margin-bottom:16px;}
+  .belief h3{font-family:var(--serif);font-weight:440;font-size:23px;margin-bottom:12px;}
+  .belief p{font-size:16px;color:var(--muted);font-weight:300;line-height:1.7;padding-right:18px;}
+  @media(max-width:860px){.beliefs{grid-template-columns:1fr;}}
+
+  /* ---------- quote ---------- */
+  .quote{background:var(--paper-3);}
+  .quote .wrap{padding:108px 32px;text-align:center;}
+  blockquote{font-family:var(--serif);font-style:italic;font-weight:340;font-size:clamp(26px,3.6vw,42px);line-height:1.35;letter-spacing:-0.01em;max-width:24ch;margin:0 auto;}
+  .quote cite{display:block;margin-top:34px;font-family:var(--sans);font-style:normal;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+  /* ---------- what we do ---------- */
+  .split{display:grid;grid-template-columns:0.85fr 1.15fr;gap:72px;align-items:start;}
+  @media(max-width:860px){.split{grid-template-columns:1fr;gap:40px;}}
+
+  /* ---------- models wall ---------- */
+  .models{background:var(--paper-2);}
+  .model-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:56px;}
+  .model{background:var(--paper-2);padding:30px 26px;transition:background .3s;}
+  .model:hover{background:var(--paper);}
+  .model .fam{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
+  .model .name{font-family:var(--serif);font-size:21px;font-weight:440;margin-bottom:6px;}
+  .model .meta{font-family:var(--sans);font-size:13px;color:var(--muted);}
+  .model .free{display:inline-block;margin-top:14px;font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;color:var(--clay-deep);border:1px solid var(--clay);border-radius:999px;padding:3px 11px;}
+  @media(max-width:980px){.model-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.model-grid{grid-template-columns:1fr;}}
+  .model-note{margin-top:30px;font-family:var(--sans);font-size:14px;color:var(--muted);}
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:8px;}
+  .stat .num{font-family:var(--serif);font-weight:360;font-size:clamp(44px,6vw,72px);line-height:1;color:var(--ink);}
+  .stat .num em{font-style:italic;color:var(--clay);}
+  .stat .cap{font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:14px;letter-spacing:.03em;}
+  @media(max-width:760px){.stats{grid-template-columns:1fr;gap:40px;}}
+
+  /* ---------- principles ---------- */
+  .principle-list{margin-top:56px;border-top:1px solid var(--line);}
+  .principle{display:grid;grid-template-columns:0.4fr 0.6fr;gap:48px;padding:42px 0;border-bottom:1px solid var(--line-soft);align-items:baseline;}
+  .principle h3{font-family:var(--serif);font-weight:380;font-size:clamp(24px,3vw,34px);}
+  .principle h3 .en{display:block;font-family:var(--sans);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-weight:500;}
+  .principle p{font-size:17px;color:var(--ink-soft);font-weight:300;}
+  @media(max-width:760px){.principle{grid-template-columns:1fr;gap:16px;}}
+
+  /* ---------- start ---------- */
+  .start{background:var(--ink);color:var(--paper);}
+  .start::before{display:none;}
+  .start h2{color:var(--paper);}
+  .start h2 em{color:#E89B7E;}
+  .start .prose{color:rgba(245,241,232,0.78);}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(245,241,232,0.12);border:1px solid rgba(245,241,232,0.12);margin-top:56px;}
+  .step{background:var(--ink);padding:34px 28px;}
+  .step .s{font-family:var(--serif);font-style:italic;font-size:18px;color:#E89B7E;margin-bottom:16px;}
+  .step h4{font-family:var(--serif);font-weight:440;font-size:20px;margin-bottom:10px;color:var(--paper);}
+  .step p{font-family:var(--sans);font-size:14px;color:rgba(245,241,232,0.62);line-height:1.7;}
+  .step code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:rgba(245,241,232,0.1);padding:2px 7px;border-radius:5px;color:#E89B7E;}
+  @media(max-width:760px){.steps{grid-template-columns:1fr;}}
+  .start-cta{margin-top:52px;}
+  .start-cta .btn-primary{background:var(--paper);color:var(--ink);}
+  .start-cta .btn-primary:hover{background:#E89B7E;color:var(--ink);}
+
+  /* ---------- footer ---------- */
+  footer{padding:80px 0 56px;}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:48px;border-bottom:1px solid var(--line);}
+  .foot-brand{font-family:var(--serif);font-size:28px;font-weight:500;max-width:30ch;line-height:1.3;}
+  .foot-brand span{color:var(--muted);font-size:16px;font-weight:300;display:block;margin-top:14px;font-family:var(--cjk);}
+  .foot-cols{display:flex;gap:64px;flex-wrap:wrap;font-family:var(--sans);}
+  .foot-col h5{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  .foot-col a,.foot-col p{display:block;font-size:15px;color:var(--ink-soft);margin-bottom:11px;transition:color .25s;}
+  .foot-col a:hover{color:var(--clay);}
+  .ph{color:var(--clay-deep);background:rgba(190,91,60,0.08);padding:1px 6px;border-radius:4px;font-size:13px;}
+  .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px;font-family:var(--sans);font-size:13px;color:var(--muted);}
+
+  /* ---------- reveal anim ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="https://www.nexusvai.xyz/Logo/Cancri1.jpg" alt="NexusVAI" />917813</a>
+    <div class="nav-links">
+      <a href="#belief">理念</a>
+      <a href="#do">我们做什么</a>
+      <a href="#models">模型</a>
+      <a href="#principle">原则</a>
+      <a href="#start">开始</a>
+    </div>
+    <a class="nav-cta" href="https://api.nexusvai.xyz/">免费使用</a>
+  </div>
+</nav>
+
+<a id="top"></a>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">关于 917813</p>
+    <h1 class="lede reveal">让最好的智能，<br>成为像<em>空气与水</em><br>一样的公共品。</h1>
+    <p class="hero-sub reveal">917813 是一个基于 NewAPI 的模型中转站。我们把世界上最先进的语言模型汇聚到同一个接口之下——并把其中很大一部分，<strong>免费、公益地</strong>开放给每一个需要它的人。</p>
+    <div class="hero-actions reveal">
+      <a class="btn-primary" href="#start">三步开始使用</a>
+      <a class="btn-ghost" href="#belief">我们为何而做 →</a>
+    </div>
+  </div>
+</header>
+
+<div class="rule"></div>
+
+<!-- ============ 理念 ============ -->
+<section id="belief">
+  <div class="wrap">
+    <p class="sec-label reveal">我们相信</p>
+    <h2 class="reveal">智能不应是少数人的特权，<br>而该是<em>每个人</em>都能取用的火种。</h2>
+    <div class="beliefs">
+      <div class="belief reveal">
+        <div class="n">01</div>
+        <h3>智能是这个时代的电力</h3>
+        <p>正如一百年前电力重塑了世界，今天的语言模型正在重塑思考、创作与学习的方式。它太重要了，重要到不该被价格挡在门外。</p>
+      </div>
+      <div class="belief reveal">
+        <div class="n">02</div>
+        <h3>公益不是施舍，是共享</h3>
+        <p>我们不把免费当作引流的诱饵，而当作一种立场：当算力有余裕时，把它分给学生、独立开发者、研究者与所有怀抱好奇的人。</p>
+      </div>
+      <div class="belief reveal">
+        <div class="n">03</div>
+        <h3>少即是多，慢即是稳</h3>
+        <p>我们克制地做一件事——把模型可靠地、稳定地、透明地送到你面前。不喧哗，不承诺无法兑现的东西。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 引言 ============ -->
+<section class="quote">
+  <div class="wrap">
+    <blockquote class="reveal">“工具的价值，不在于它有多强大，<br>而在于它落在多少双手中。”</blockquote>
+    <cite class="reveal">— 917813 的信条</cite>
+  </div>
+</section>
+
+<!-- ============ 我们做什么 ============ -->
+<section id="do">
+  <div class="wrap split">
+    <div>
+      <p class="sec-label reveal">我们做什么</p>
+      <h2 class="reveal">一个接口，<br>通向所有的<em>智能</em>。</h2>
+    </div>
+    <div class="prose reveal">
+      <p>917813 把 Claude、GPT、Gemini、DeepSeek、以及更多模型，统一在一个 <strong>OpenAI 兼容</strong>的接口之下。你不必为每一家厂商单独申请、单独计费、单独适配。</p>
+      <p>把原本写给 OpenAI 的代码，改一个地址，就能调用我们聚合的全部模型。其中相当一部分，<strong>对所有人完全免费</strong>——无需付费，无需信用卡，只为让你能真正地用起来。</p>
+      <p>我们做的是「中转」，但我们想做的，是一座<strong>桥</strong>：让前沿的智能，与最普通的好奇心相遇。</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ============ 数字 ============ -->
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="num"><em><span class="ph">100+</span></em></div>
+        <div class="cap">聚合可用模型</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><em><span class="ph">数十</span></em>款</div>
+        <div class="cap">长期免费公益开放</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="ph">99.9%</span></div>
+        <div class="cap">接口可用性目标</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 模型墙 ============ -->
+<section class="models" id="models">
+  <div class="wrap">
+    <p class="sec-label reveal">汇聚于此</p>
+    <h2 class="reveal">最好的模型，<br>都在<em>同一扇门</em>之后。</h2>
+    <div class="model-grid">
+      <div class="model reveal"><div class="fam">Anthropic</div><div class="name">Claude</div><div class="meta">Opus · Sonnet · Haiku</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">OpenAI</div><div class="name">GPT</div><div class="meta">GPT-4o · o 系列</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">Google</div><div class="name">Gemini</div><div class="meta">2.5 Pro · Flash</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">DeepSeek</div><div class="name">DeepSeek</div><div class="meta">V3 · R1 推理</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">xAI</div><div class="name">Grok</div><div class="meta">最新世代</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">Alibaba</div><div class="name">Qwen 通义</div><div class="meta">Max · 长上下文</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">Meta</div><div class="name">Llama</div><div class="meta">开源旗舰</div><span class="free">公益开放</span></div>
+      <div class="model reveal"><div class="fam">More</div><div class="name">以及更多</div><div class="meta">持续接入中</div><span class="free">陆续上线</span></div>
+    </div>
+    <p class="model-note reveal">* 具体可用模型与免费额度以站内「模型列表」实时为准。免费政策可能随算力波动调整，我们会尽力让它一直在。</p>
+  </div>
+</section>
+
+<!-- ============ 原则 ============ -->
+<section id="principle">
+  <div class="wrap">
+    <p class="sec-label reveal">我们坚持的</p>
+    <h2 class="reveal">四条<em>不愿妥协</em>的原则。</h2>
+    <div class="principle-list">
+      <div class="principle reveal">
+        <h3>开放<span class="en">Openness</span></h3>
+        <p>标准 OpenAI 兼容协议，文档公开，接入透明。你随时可以带着代码离开——不锁定，是一种尊重。</p>
+      </div>
+      <div class="principle reveal">
+        <h3>平等<span class="en">Equality</span></h3>
+        <p>免费用户与付费用户，使用的是同一批模型、同一套接口。公益不等于次级体验。</p>
+      </div>
+      <div class="principle reveal">
+        <h3>克制<span class="en">Restraint</span></h3>
+        <p>我们不滥采数据，不在你看不见的地方做手脚，不为短期增长牺牲长期的信任。</p>
+      </div>
+      <div class="principle reveal">
+        <h3>诚实<span class="en">Honesty</span></h3>
+        <p>免费就是免费，限制就讲清限制。我们宁可少承诺，也不愿让你失望。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 开始使用 ============ -->
+<section class="start" id="start">
+  <div class="wrap">
+    <p class="sec-label reveal" style="color:#E89B7E;">三步开始</p>
+    <h2 class="reveal">把它<em>用起来</em>，<br>只需要几分钟。</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="s">第一步</div>
+        <h4>注册并领取密钥</h4>
+        <p>在站内注册账号，免费创建你的 API Key。无需付费，即刻可用。</p>
+      </div>
+      <div class="step reveal">
+        <div class="s">第二步</div>
+        <h4>替换接口地址</h4>
+        <p>把 base_url 指向 <code>https://api.nexusvai.xyz/v1</code>，填入刚才的 Key 即可。</p>
+      </div>
+      <div class="step reveal">
+        <div class="s">第三步</div>
+        <h4>选择模型，开始调用</h4>
+        <p>像调用 OpenAI 一样调用任意聚合模型。免费模型，直接开跑。</p>
+      </div>
+    </div>
+    <div class="start-cta reveal">
+      <a class="btn-primary" href="https://api.nexusvai.xyz/">立即免费注册</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ footer ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        917813
+        <span>让最好的智能，成为像空气与水一样的公共品。</span>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>站点</h5>
+          <a href="https://api.nexusvai.xyz/">首页</a>
+          <a href="#models">模型列表</a>
+          <a href="#start">开始使用</a>
+          <a href="https://api.nexusvai.xyz/">控制台</a>
+        </div>
+        <div class="foot-col">
+          <h5>联系我们</h5>
+          <p>邮箱 <a href="mailto:3573799137@QQ.com">3573799137@QQ.com</a></p>
+          <p>GitHub <a href="https://github.com/NexusVAI" target="_blank" rel="noopener">github.com/NexusVAI</a></p>
+        </div>
+        <div class="foot-col">
+          <h5>地址</h5>
+          <a href="https://api.nexusvai.xyz/" target="_blank" rel="noopener">api.nexusvai.xyz</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> NexusVAI · 917813 · 公益开放，自由取用</span>
+      <span>api.nexusvai.xyz</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
